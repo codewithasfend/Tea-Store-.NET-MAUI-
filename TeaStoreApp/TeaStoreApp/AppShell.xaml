@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell x:Class="TeaStoreApp.AppShell"
+       xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:local="clr-namespace:TeaStoreApp"
+       xmlns:pages="clr-namespace:TeaStoreApp.Pages"
+       Shell.FlyoutBehavior="Disabled"
+       Shell.TabBarBackgroundColor="#18565F"
+       Shell.TabBarTitleColor="White"
+       Shell.TabBarUnselectedColor="FloralWhite">
+
+
+    <TabBar>
+        <Tab Title="Home"
+             Icon="home">
+            <ShellContent ContentTemplate="{DataTemplate pages:HomePage}" />
+        </Tab>
+        <Tab Title="Cart"
+             Icon="cart">
+            <ShellContent ContentTemplate="{DataTemplate pages:CartPage}" />
+        </Tab>
+        <Tab Title="Favorites"
+             Icon="heart">
+            <ShellContent ContentTemplate="{DataTemplate pages:FavoritesPage}" />
+        </Tab>
+        <Tab Title="Profile"
+             Icon="profile">
+            <ShellContent ContentTemplate="{DataTemplate pages:ProfilePage}" />
+        </Tab>
+    </TabBar>
+
+</Shell>

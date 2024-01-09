@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TeaStoreApp.Pages.ProductDetailPage"
+             Title="ProductDetailPage">
+
+    <Grid RowDefinitions="Auto,Auto,Auto,*,Auto">
+        <Image Grid.Row="0"
+               Grid.Column="0"
+               x:Name="ImgProduct"
+               HeightRequest="280"
+               VerticalOptions="Start"
+               Aspect="AspectFill" />
+
+        <ImageButton Grid.Row="0"
+                     HeightRequest="40"
+                     WidthRequest="40"
+                     CornerRadius="15"
+                     Margin="20"
+                     Padding="5"
+                     Source="heart"
+                     BackgroundColor="White"
+                     HorizontalOptions="End"
+                     VerticalOptions="Start"
+                     x:Name="ImgBtnFavorite" 
+                     Clicked="ImgBtnFavorite_Clicked"/>
+
+        <HorizontalStackLayout Spacing="20"
+                               HorizontalOptions="Center"
+                               Margin="20"
+                               Grid.Row="1">
+
+            <Button HeightRequest="50"
+                    WidthRequest="50"
+                    CornerRadius="25"
+                    BackgroundColor="#18565f"
+                    TextColor="White"
+                    Text="-"
+                    Padding="0"
+                    FontSize="30"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    x:Name="BtnRemove" 
+                    Clicked="BtnRemove_Clicked"/>
+            <Label x:Name="LblQty"
+                   Text="1"
+                   FontSize="Large"
+                   VerticalTextAlignment="Center" />
+            <Button HeightRequest="50"
+                    WidthRequest="50"
+                    CornerRadius="25"
+                    BackgroundColor="#18565f"
+                    TextColor="White"
+                    Text="+"
+                    Padding="0"
+                    FontSize="30"
+                    FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    x:Name="BtnAdd" 
+                    Clicked="BtnAdd_Clicked"/>
+        </HorizontalStackLayout>
+
+        <Grid ColumnDefinitions="8*,2*"
+              Margin="20"
+              Grid.Row="2">
+            <Label x:Name="LblProductName"
+                   Grid.Column="0"
+                   VerticalOptions="Center"
+                   FontSize="25" />
+            <Label Grid.Column="1"
+                   FontSize="Medium"
+                   VerticalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <FormattedString.Spans>
+                            <Span x:Name="LblProductPrice" />
+                            <Span Text=" $" />
+                        </FormattedString.Spans>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </Grid>
+
+        <Label Grid.Row="3"
+               Margin="20"
+               x:Name="LblProductDescription" />
+
+        <Grid ColumnDefinitions="5*,5*"
+              Grid.Row="4"
+              ColumnSpacing="10">
+            <VerticalStackLayout VerticalOptions="Center">
+                <Label Text="Total Price"
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center" />
+                <Label VerticalOptions="Center"
+                       HorizontalOptions="Center">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span x:Name="LblTotalPrice" />
+                                <Span Text=" $" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </VerticalStackLayout>
+            <Button Text="Add To Cart"
+                    Grid.Column="1"
+                    CornerRadius="0"
+                    Padding="30"
+                    Margin="0,0,0,5"
+                    BackgroundColor="#18565f"
+                    TextColor="White"
+                    x:Name="BtnAddToCart" 
+                    Clicked="BtnAddToCart_Clicked"/>
+
+        </Grid>
+    </Grid>
+</ContentPage>

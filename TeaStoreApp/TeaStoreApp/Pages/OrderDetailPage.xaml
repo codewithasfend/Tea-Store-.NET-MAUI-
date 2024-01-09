@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TeaStoreApp.Pages.OrderDetailPage"
+             Title="OrderDetailPage">
+
+    <CollectionView x:Name="CvOrderDetail"
+                    Margin="20">
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical"
+                               ItemSpacing="10" />
+        </CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Border Padding="10"
+                        Stroke="#87A7AC"
+                        StrokeShape="RoundRectangle 10">
+
+                    <Grid RowDefinitions="Auto,Auto,Auto"
+                          ColumnDefinitions="2*,8*"
+                          ColumnSpacing="10">
+
+                        <Image Grid.Row="0"
+                               VerticalOptions="Start"
+                               Aspect="Fill"
+                               HeightRequest="60"
+                               WidthRequest="60"
+                               Grid.RowSpan="3"
+                               Grid.Column="0"
+                               Source="{Binding FullImageUrl}" />
+
+                        <Label Grid.Row="0"
+                               Grid.Column="1"
+                               Text="{Binding ProductName}" />
+                        <Label Grid.Row="1"
+                               Grid.Column="1"
+                               Text="{Binding ProductPrice,StringFormat='{}{0:C}'}" />
+                        <Label Grid.Row="2"
+                               Grid.Column="1">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="x " />
+                                    <Span Text="{Binding Qty}"/>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+        <CollectionView.Footer>
+            <HorizontalStackLayout HorizontalOptions="End"
+                                   Spacing="10">
+                <Label Text="Total Price" />
+                <Label  x:Name="LblTotalPrice" />
+            </HorizontalStackLayout>
+        </CollectionView.Footer>
+    </CollectionView>
+
+
+</ContentPage>

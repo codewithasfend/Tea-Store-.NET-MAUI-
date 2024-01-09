@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TeaStoreApp.Pages.CartPage">
+
+    <Grid RowDefinitions="Auto,8*,Auto,Auto"
+          Margin="20"
+          RowSpacing="20">
+
+        <CollectionView Grid.Row="1"
+                        Margin="0,0,0,0"
+                        x:Name="CvCart">
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout ItemSpacing="10"
+                                   Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10"
+                           CornerRadius="10"
+                           BorderColor="White"
+                           BackgroundColor="White">
+
+                        <Grid RowDefinitions="Auto,Auto,Auto"
+                              ColumnDefinitions="3*,6*,1*"
+                              RowSpacing="5"
+                              ColumnSpacing="20">
+                            <Frame Padding="0"
+                                   HorizontalOptions="Start"
+                                   CornerRadius="15"
+                                   Grid.Row="0"
+                                   Grid.RowSpan="3"
+                                   Grid.Column="0"
+                                   HeightRequest="80"
+                                   WidthRequest="80">
+
+                                <Image Aspect="Fill"
+                                       Source="{Binding FullImageUrl}"/>
+                            </Frame>
+                            <Label Grid.Row="0"
+                                   Grid.Column="1"
+                                   Grid.ColumnSpan="2"
+                                   FontSize="Subtitle"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   Text="{Binding ProductName}"/>
+                            <Label Grid.Row="1"
+                                   Grid.Column="1"
+                                   HorizontalOptions="Start"
+                                   VerticalOptions="Center"
+                                   Text="{Binding Price,StringFormat='{0:C0}'}"/>
+                            <HorizontalStackLayout Grid.Row="2"
+                                                   Grid.Column="1"
+                                                   Spacing="10">
+                                <Button HeightRequest="25"
+                                        WidthRequest="25"
+                                        CornerRadius="8"
+                                        BackgroundColor="White"
+                                        TextColor="Black"
+                                        BorderColor="Black"
+                                        BorderWidth="1"
+                                        Text="-"
+                                        Padding="0"
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        x:Name="BtnDecrease" 
+                                        Clicked="BtnDecrease_Clicked"/>
+                                <Label x:Name="LblQty"
+                                       TextColor="#80574D"
+                                       VerticalTextAlignment="Center"
+                                       Text="{Binding Qty}"/>
+                                <Button HeightRequest="25"
+                                        WidthRequest="25"
+                                        CornerRadius="8"
+                                        BackgroundColor="#18565f"
+                                        Text="+"
+                                        Padding="0"
+                                        FontAttributes="Bold"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"
+                                        x:Name="BtnIncrease" 
+                                        Clicked="BtnIncrease_Clicked"/>
+                            </HorizontalStackLayout>
+                            <ImageButton Grid.Row="2"
+                                         Grid.Column="2"
+                                         HeightRequest="25"
+                                         WidthRequest="25"
+                                         Source="delete"
+                                         Padding="0"
+                                         HorizontalOptions="Center"
+                                         VerticalOptions="Center"
+                                         x:Name="BtnDelete" 
+                                         Clicked="BtnDelete_Clicked"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Frame Grid.Row="2"
+               Padding="10"
+               BackgroundColor="White"
+               BorderColor="White">
+            <Grid RowDefinitions="Auto,Auto"
+                  ColumnDefinitions="8*,2*">
+
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       Text="Your Delivery Address"
+                       FontAttributes="Bold"
+                       VerticalOptions="Start" />
+                <ImageButton Grid.Row="0"
+                             Padding="0"
+                             HeightRequest="25"
+                             WidthRequest="25"
+                             Grid.Column="1"
+                             HorizontalOptions="End"
+                             VerticalOptions="Start"
+                             Source="edit"
+                             x:Name="BtnEditAddress" 
+                             Clicked="BtnEditAddress_Clicked"/>
+
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       x:Name="LblAddress" />
+            </Grid>
+        </Frame>
+
+        <Frame Grid.Row="3"
+               Padding="10"
+               BorderColor="Transparent"
+               BackgroundColor="#18565f">
+            <Grid RowDefinitions="Auto,Auto"
+                  ColumnDefinitions="5*,5*">
+                <Label Grid.Row="0"
+                       Grid.Column="0"
+                       Text="Total Price"
+                       TextColor="White"
+                       Margin="10,0,0,0" />
+                <Label Grid.Row="1"
+                       Grid.Column="0"
+                       TextColor="White"
+                       Margin="10,0,0,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <FormattedString.Spans>
+                                <Span Text="$"
+                                      TextColor="White" />
+                                <Span x:Name="LblTotalPrice"
+                                      TextColor="White" />
+                            </FormattedString.Spans>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <HorizontalStackLayout  Grid.Row="0"
+                                        HorizontalOptions="End"
+                                        Margin="0,0,10,0"
+                                        Grid.RowSpan="2"
+                                        Grid.Column="1"
+                                        Spacing="2">
+                    <Label Text="Place Order "
+                           Padding="0"
+                           VerticalOptions="Center"
+                           BackgroundColor="#18565f"
+                           TextColor="White" />
+                    <Image Source="rightarrow"
+                           HeightRequest="30"
+                           WidthRequest="30"
+                           VerticalOptions="Center" />
+
+                    <HorizontalStackLayout.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="TapPlaceOrder" 
+                                              Tapped="TapPlaceOrder_Tapped"/>
+                    </HorizontalStackLayout.GestureRecognizers>
+                </HorizontalStackLayout>
+
+            </Grid>
+        </Frame>
+    </Grid>
+</ContentPage>

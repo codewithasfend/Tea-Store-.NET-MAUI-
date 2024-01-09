@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TeaStoreApp.Pages.AddressPage"
+             Title="AddressPage">
+
+    <VerticalStackLayout Margin="20"
+                         Spacing="10"
+                         VerticalOptions="Start">
+        <Label Text="Delivery Address"
+               HorizontalOptions="Center"
+               FontSize="Large" />
+
+        <Frame Padding="10"
+               BackgroundColor="White">
+            <VerticalStackLayout>
+
+                <Entry Placeholder="Full name"
+                       x:Name="EntName" />
+
+                <Entry Placeholder="Phone Number"
+                       x:Name="EntPhone" />
+
+                <Entry Placeholder="Address"
+                       HeightRequest="100"
+                       x:Name="EntAddress" />
+
+            </VerticalStackLayout>
+        </Frame>
+        <Button x:Name="BtnSave"
+                Text="Save"
+                FontSize="Medium" 
+                Clicked="BtnSave_Clicked"/>
+
+    </VerticalStackLayout>
+</ContentPage>

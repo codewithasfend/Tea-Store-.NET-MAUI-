@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TeaStoreApp.Pages.SignupPage"
+             Title="SignupPage"
+             NavigationPage.HasNavigationBar="False">
+    <Grid RowDefinitions="Auto,Auto,Auto,Auto,*"
+          RowSpacing="20"
+          Margin="20,150,20,40">
+        <Image Grid.Row="0"
+               Source="storelogo.png"
+               Aspect="AspectFit"
+               HeightRequest="100"
+               WidthRequest="100" />
+        <Label Grid.Row="1"
+               Text="Hello there! Ready to join us?"
+               HorizontalOptions="Center" />
+        <Frame Grid.Row="2"
+               Padding="15"
+               BackgroundColor="White">
+            <VerticalStackLayout>
+                <Entry Placeholder="Name"
+                       x:Name="EntName" />
+
+                <Entry Placeholder="Email"
+                       Keyboard="Email"
+                       x:Name="EntEmail" />
+
+                <Entry Placeholder="Phone"
+                       Keyboard="Telephone"
+                       x:Name="EntPhone" />
+
+                <Entry Placeholder="Password"
+                       IsPassword="True"
+                       x:Name="EntPassword" />
+            </VerticalStackLayout>
+        </Frame>
+
+        <Button Grid.Row="3"
+                Text="Sign Up"
+                x:Name="BtnSignup" 
+                Clicked="BtnSignup_Clicked"/>
+        <HorizontalStackLayout Grid.Row="4"
+                               Spacing="2"
+                               HorizontalOptions="Center"
+                               VerticalOptions="EndAndExpand">
+            <Label Text="Already have an account?" />
+            <Label Text="Sign In">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapLogin"
+                                          Tapped="TapLogin_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+        </HorizontalStackLayout>
+    </Grid>
+</ContentPage>

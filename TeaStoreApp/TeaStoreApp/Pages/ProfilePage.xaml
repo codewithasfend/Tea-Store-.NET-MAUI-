@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TeaStoreApp.Pages.ProfilePage">
+    <Grid RowDefinitions="Auto,5*,1*"
+          RowSpacing="0">
+        <VerticalStackLayout Grid.Row="0"
+                             BackgroundColor="#18565f"
+                             VerticalOptions="Start"
+                             Spacing="5"
+                             Padding="10">
+            <ImageButton Source="uploadphoto.png"
+                         HeightRequest="120"
+                         WidthRequest="120"
+                         CornerRadius="60"
+                         Padding="0"
+                         Aspect="AspectFill"
+                         x:Name="ImgUserProfileBtn" 
+                         Clicked="ImgUserProfileBtn_Clicked"/>
+
+            <Label x:Name="LblUserName"
+                   HorizontalOptions="Center"
+                   TextColor="White" />
+        </VerticalStackLayout>
+        <VerticalStackLayout Grid.Row="1"
+                             Margin="20"
+                             Spacing="20">
+            <HorizontalStackLayout Spacing="10">
+                <Image Source="orders"
+                       HeightRequest="25" />
+                <Label Text="My Orders"
+                       FontSize="Medium" />
+                <HorizontalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="TapOrders" 
+                                          Tapped="TapOrders_Tapped"/>
+                </HorizontalStackLayout.GestureRecognizers>
+            </HorizontalStackLayout>
+
+            <Border HeightRequest="1"
+                    BackgroundColor="Gray" />
+            <HorizontalStackLayout Spacing="10">
+                <Image Source="profilesettings"
+                       HeightRequest="25" />
+                <Label Text="My Information"
+                       FontSize="Medium" />
+            </HorizontalStackLayout>
+            <Border HeightRequest="1"
+                    BackgroundColor="Gray" />
+            <HorizontalStackLayout Spacing="10">
+                <Image Source="faq"
+                       HeightRequest="25" />
+                <Label Text="FAQ"
+                       FontSize="Medium" />
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+        <Button Grid.Row="2"
+                Text="Logout"
+                FontSize="Medium"
+                HorizontalOptions="Center"
+                BackgroundColor="Transparent"
+                TextColor="Red"
+                x:Name="BtnLogout" 
+                Clicked="BtnLogout_Clicked"/>
+    </Grid>
+
+</ContentPage>
